@@ -44,7 +44,7 @@ In this challenge, you will find mobile and desktop designs in light and dark mo
 ### Links
 
 - Solution URL: [Frontend Mentor](https://www.frontendmentor.io/solutions/)
-- Live Site URL: [Job Listings App](https://nityagulati.github.io/rest-countries-api/)
+- Live Site URL: [REST Countries API](https://nityagulati.github.io/rest-countries-api/)
 
 ## My process
 
