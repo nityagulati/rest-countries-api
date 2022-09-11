@@ -20,7 +20,6 @@
 /* semantic color variables */
 :root {
   --color-background: var(--c-white);
-  --color-background-element: var(--c-white);
   --color-background-mute: var(--c-very-light-gray);
 
   --color-text: var(--c-text-light-1);
@@ -29,10 +28,17 @@
   --section-gap: 160px;
 }
 
+[theme="dark"] {
+  --color-background: var(--c-dark-blue);
+  --color-background-mute: var(--c-very-dark-blue);
+
+  --color-text: var(--c-text-dark-1);
+  --color-text-element: var(--c-dark-blue);
+}
+
 @media (prefers-color-scheme: dark) {
   :root {
     --color-background: var(--c-dark-blue);
-    --color-background-element: var(--c-dark-blue);
     --color-background-mute: var(--c-very-dark-blue);
 
     --color-text: var(--c-text-dark-1);
