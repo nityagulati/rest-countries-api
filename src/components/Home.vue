@@ -1,16 +1,13 @@
 <template>
-<div v-for="country in this.countries" :key="country">
-    <p>{{country.name.common}}</p>
-    <p>Population: {{country.population}}</p>
-    <p>Region: {{country.region}}</p>
-    <p>Capital: {{country.capital}}</p>
-</div>
+<CountryCard :countries="countries"></CountryCard>
 </template>
 
 <script>
+import CountryCard from './CountryCard.vue';
+
 export default {
-    props: {
-        countries: Array
+    components: { 
+        CountryCard 
     }
 }
 </script>
