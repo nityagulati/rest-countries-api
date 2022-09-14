@@ -1,9 +1,11 @@
 <script>
 import Header from './components/Header.vue'
+import Home from './components/Home.vue'
 
 export default {
   components: {
-    Header
+    Header,
+    Home
   },
   data() {
     return {
@@ -27,6 +29,7 @@ export default {
 
 <template>
   <Header></Header>
+  <Home :countries="countries"></Home>
 </template>
 
 <style scoped>
