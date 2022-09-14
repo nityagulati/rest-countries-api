@@ -25,6 +25,8 @@
   --color-text: var(--c-text-light-1);
   --color-text-element: var(--c-text-light-2);
 
+  --box-shadow: var(var(--box-shadow));
+
   --section-gap: 160px;
 }
 

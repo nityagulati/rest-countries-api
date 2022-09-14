@@ -26,3 +26,38 @@ export default {
     }
 }
 </script>
+
+<style scoped>
+.container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 50px;
+}
+
+.card {
+    background: var(--color-background);
+    padding-bottom: 45px;
+    flex: 1 0 20%;
+    box-shadow: var(--box-shadow);
+    border-radius: 5px;
+}
+
+.card-content {
+    padding: 0 24px;
+}
+
+.name {
+    font-size: var(--font-size-md);
+    font-weight: var(--font-weight-bold);
+    margin-bottom: 16px;
+}
+
+span {
+    font-weight: var(--font-weight-semi);
+}
+
+.meta {
+    margin-bottom: 8px;
+}
+
+</style>
