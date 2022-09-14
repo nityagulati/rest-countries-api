@@ -11,7 +11,7 @@
                 {{country.name.common}}
             </p>
             <p class="population meta"><span>Population: </span>
-                {{country.population}}
+                {{country.population.toLocaleString()}}
             </p>
             <p class="region meta"><span>Region: </span>
                 {{country.region}}
