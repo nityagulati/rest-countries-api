@@ -14,7 +14,7 @@ export default {
   },
   async created() {
     let data = []
-    let API_URL = 'https://restcountries.com/v3.1/all'
+    let API_URL = 'https://restcountries.com/v3.1/all?fields=name,capital,population,region,flags,cca3'
     let response = await fetch(API_URL)
     console.log(response.status)
     console.log(response.statusText)
