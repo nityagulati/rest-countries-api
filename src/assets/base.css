@@ -15,6 +15,8 @@
   --c-border-light: #979797;
 
   --box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.0562443);
+  --border-radius: 5px;
+  --border-radius-img: 5px 5px 0 0;
 }
 
 /* semantic color variables */
@@ -27,7 +29,7 @@
 
   --box-shadow: var(var(--box-shadow));
 
-  --section-gap: 160px;
+  --icon-color: var(--c-text-light-2);
 }
 
 [theme="dark"] {
@@ -36,6 +38,8 @@
 
   --color-text: var(--c-text-dark-1);
   --color-text-element: var(--c-dark-blue);
+
+  --icon-color: var(--c-text-dark-1);
 }
 
 @media (prefers-color-scheme: dark) {
@@ -45,11 +49,14 @@
 
     --color-text: var(--c-text-dark-1);
     --color-text-element: var(--c-dark-blue);
+
+    --icon-color: var(--c-text-dark-1);
   }
 }
 
 /* typography */
 :root {
+  --font-family: 'Nunito Sans', sans-serif;
   --font-weight-regular: 300;
   --font-weight-semi: 600;
   --font-weight-bold: 800;
@@ -76,7 +83,7 @@ body {
   background: var(--color-background-mute);
   transition: color 0.5s, background-color 0.5s;
   line-height: 1.6;
-  font-family: 'Nunito Sans', sans-serif;
+  font-family: var(--font-family);
   font-size: var(--font-size-xs);
   font-weight: var(--font-weight-regular);
   text-rendering: optimizeLegibility;
