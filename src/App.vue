@@ -34,7 +34,12 @@ export default {
 
 <style>
 .container {
-  padding: 24px 80px;
+  padding: 30px 55px;
 }
 
+@media screen and (min-width:768px) {
+  .container {
+    padding: 30px 80px;
+  }
+}
 </style>

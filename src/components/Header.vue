@@ -65,4 +65,11 @@ h1 {
     -webkit-tap-highlight-color: transparent;
     outline-offset: 5px;
 }
+
+@media screen and (max-width:767px) {
+    header.container {
+        padding: 30px 15px;
+    }
+    
+}
 </style>
