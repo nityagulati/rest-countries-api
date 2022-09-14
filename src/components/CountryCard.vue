@@ -1,6 +1,11 @@
 <template>
 <div class="container">
     <div class="card" v-for="(country, index) in this.countries" :key="index">
+        <img 
+            class="card-image flag" 
+            :src="country.flags.svg" 
+            alt="`Flag of ${counry.name.common}`"
+        >
         <div class="card-content">
             <p class="name">
                 {{country.name.common}}
@@ -40,6 +45,15 @@ export default {
     flex: 1 0 20%;
     box-shadow: var(--box-shadow);
     border-radius: 5px;
+}
+
+.card-image.flag {
+    box-shadow: var(--box-shadow);
+    border-radius: 5px 5px 0px 0px;
+    margin-bottom: 24px;
+    width: 100%;
+    height: 160px;
+    object-fit: cover;
 }
 
 .card-content {
