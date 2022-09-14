@@ -1,5 +1,5 @@
 <template>
-<header class="container">
+<header class="container--wide">
     <h1>Where in the world?</h1>
     <button 
         class="theme-toggle"
@@ -64,12 +64,5 @@ h1 {
     touch-action: manipulation;
     -webkit-tap-highlight-color: transparent;
     outline-offset: 5px;
-}
-
-@media screen and (max-width:767px) {
-    header.container {
-        padding: 30px 15px;
-    }
-    
 }
 </style>

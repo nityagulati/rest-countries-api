@@ -33,8 +33,14 @@ export default {
 </template>
 
 <style>
-.container {
+.container, .container--wide {
   padding: 30px;
+}
+
+@media screen and (max-width:767px) {
+  .container--wide {
+    padding: 30px 15px;
+  } 
 }
 
 @media screen and (min-width:360px) {

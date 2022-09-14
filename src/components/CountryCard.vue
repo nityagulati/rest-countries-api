@@ -1,5 +1,5 @@
 <template>
-<div class="container">
+<div class="card-container">
     <div class="card" v-for="(country, index) in this.countries" :key="index">
         <img 
             class="card-image flag" 
@@ -38,7 +38,7 @@ export default {
 </script>
 
 <style scoped>
-.container {
+.card-container {
     display: grid;
     grid-template-columns: minmax(auto, 264px);
     grid-template-rows: auto;
@@ -81,7 +81,7 @@ span {
 }
 
 @media screen and (min-width: 768px) {
-    .container {
+    .card-container {
         grid-template-columns: repeat(auto-fill, minmax(264px, 264px));
     } 
 }
