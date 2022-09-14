@@ -32,6 +32,9 @@ export default {
   <Home :countries="countries"></Home>
 </template>
 
-<style scoped>
+<style>
+.container {
+  padding: 24px 80px;
+}
 
 </style>

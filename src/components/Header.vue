@@ -1,5 +1,5 @@
 <template>
-<header>
+<header class="container">
     <h1>Where in the world?</h1>
     <button 
         class="theme-toggle"
@@ -44,7 +44,6 @@ export default {
 header {
   background: var(--color-background);
   box-shadow: var(--box-shadow);
-  padding: 24px 80px;
   display: flex;
   justify-content: space-between;
   align-items: center;
