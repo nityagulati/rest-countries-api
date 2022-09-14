@@ -39,15 +39,16 @@ export default {
 
 <style scoped>
 .container {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 50px;
+    display: grid;
+    grid-template-columns: minmax(auto, 264px);
+    grid-template-rows: auto;
+    justify-content: center;
+    grid-gap: 75px;
 }
 
 .card {
     background: var(--color-background);
     padding-bottom: 45px;
-    flex: 1 0 20%;
     box-shadow: var(--box-shadow);
     border-radius: 5px;
 }
@@ -77,6 +78,12 @@ span {
 
 .meta {
     margin-bottom: 8px;
+}
+
+@media screen and (min-width: 768px) {
+    .container {
+        grid-template-columns: repeat(auto-fill, minmax(264px, 264px));
+    } 
 }
 
 </style>
