@@ -17,7 +17,7 @@
                 {{country.region}}
             </p>
             <p class="capital meta"><span>Capital: </span>
-                {{country.capital[0]}}
+                {{isCapital(country.capital[0])}}
             </p>
         </div>
     </div>
@@ -28,6 +28,11 @@
 export default {
     props: {
         countries: Object,
+    },
+    methods: {
+        isCapital(capital) {
+            return capital ? capital : 'N/A'
+        } 
     }
 }
 </script>
