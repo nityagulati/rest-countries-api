@@ -1,11 +1,13 @@
 <script>
 import Header from './components/Header.vue'
 import Home from './components/Home.vue'
+import FilterBar from './components/FilterBar.vue'
 
 export default {
   components: {
     Header,
-    Home
+    Home,
+    FilterBar
   },
   data() {
     return {
@@ -29,6 +31,7 @@ export default {
 
 <template>
   <Header></Header>
+  <FilterBar :countries="countries"></FilterBar>
   <Home :countries="countries"></Home>
 </template>
 
