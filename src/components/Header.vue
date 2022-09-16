@@ -1,5 +1,5 @@
 <template>
-<header class="container--wide">
+<header class="container--wide shadow">
     <h1>Where in the world?</h1>
     <button 
         class="theme-toggle"
@@ -43,7 +43,6 @@ export default {
 <style scoped>
 header {
   background: var(--color-background);
-  box-shadow: var(--box-shadow);
   display: flex;
   justify-content: space-between;
   align-items: center;

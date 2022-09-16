@@ -7,14 +7,14 @@
         >
         </font-awesome-icon>
         <input 
-            class="search-text"
+            class="search-text shadow rounded"
             type="text" 
             name="search" 
             placeholder="Search for a country..."
         >
     </div>
     <div class="region-filter">
-        <select class="filter-dropdown" name="region" id="region" aria-placeholder="Filter by Region">
+        <select class="filter-dropdown shadow rounded" name="region" id="region" aria-placeholder="Filter by Region">
             <option value="none" selected disabled hidden>Filter by Region</option>
             <option v-for="country in this.countries" :key="country.region">{{country.region}}</option>
         </select>
@@ -58,8 +58,6 @@ input.search-text {
     height: 48px;
     padding: 18px 45px;
     border: none;
-    border-radius: var(--border-radius);
-    box-shadow: var(--box-shadow);
     background: var(--color-background);
     color: var(--color-text);
 }
@@ -74,8 +72,6 @@ input:focus {
     height: 48px;
     border: none;
     outline: none;
-    box-shadow: var(--box-shadow);
-    border-radius: var(--border-radius);
     background: var(--color-background);
     color: var(--color-text);
     padding: 0 24px;

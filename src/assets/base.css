@@ -90,3 +90,15 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
+
+.shadow {
+  box-shadow: var(--box-shadow);
+}
+
+.rounded {
+  border-radius: var(--border-radius);
+}
+
+.rounded-img {
+  border-radius: var(--border-radius-img);
+}

@@ -1,8 +1,8 @@
 <template>
 <div class="card-container">
-    <div class="card" v-for="(country, index) in this.countries" :key="index">
+    <div class="card shadow rounded" v-for="(country, index) in this.countries" :key="index">
         <img 
-            class="card-image flag" 
+            class="card-image flag shadow rounded-img" 
             :src="country.flags.svg" 
             alt="`Flag of ${counry.name.common}`"
         >
@@ -49,13 +49,9 @@ export default {
 .card {
     background: var(--color-background);
     padding-bottom: 45px;
-    box-shadow: var(--box-shadow);
-    border-radius: var(--border-radius);
 }
 
 .card-image.flag {
-    box-shadow: var(--box-shadow);
-    border-radius: var(--border-radius-img);
     margin-bottom: 24px;
     width: 100%;
     height: 160px;
