@@ -26,6 +26,7 @@
 import CustomSelect from './CustomSelect.vue'
 
 export default {
+    emits: ['getRegion'],
     components: {
         CustomSelect
     },
@@ -34,13 +35,19 @@ export default {
     },
     data() {
         return {
-            options: ['Africa', 'America', 'Asia', 'Europe', 'Oceania'],
-            default: 'Fitler by Region'
+            options: ['Africa', 'Americas', 'Asia', 'Europe', 'Oceania'],
+            default: 'Fitler by Region',
+            selectedRegion: ''
         }
     },
     methods: {
         filterRegion(option) {
-            console.log(option)
+            return this.selectedRegion = option
+        }
+    },
+    watch: {
+        selectedRegion() {
+            this.$emit('getRegion', this.selectedRegion)
         }
     }
 }

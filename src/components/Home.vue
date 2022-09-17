@@ -1,5 +1,5 @@
 <template>
-<CountryCard :countries="countries"></CountryCard>
+<CountryCard></CountryCard>
 </template>
 
 <script>

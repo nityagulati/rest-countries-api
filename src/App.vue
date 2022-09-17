@@ -11,6 +11,7 @@ export default {
   },
   data() {
     return {
+      initialData: null,
       countries: null
     }
   },
@@ -22,16 +23,25 @@ export default {
     console.log(response.statusText)
     if(response.status === 200) {
       data = await response.json()
-      this.countries = data
-      console.log(this.countries)
+      this.initialData = data
     }
+    this.countries = this.initialData.slice()
   },
+  methods: {
+    getRegion(region) {
+      this.countries = this.initialData.slice()
+      let filteredCountries = this.countries.filter(country => {
+        return country.region === region
+      })
+      this.countries = filteredCountries
+    }
+  }
 }
 </script>
 
 <template>
   <Header></Header>
-  <FilterBar :countries="countries"></FilterBar>
+  <FilterBar @getRegion="getRegion"></FilterBar>
   <Home :countries="countries"></Home>
 </template>
 
