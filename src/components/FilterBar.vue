@@ -13,19 +13,35 @@
             placeholder="Search for a country..."
         >
     </div>
-    <div class="region-filter">
-        <select class="filter-dropdown shadow rounded" name="region" id="region" aria-placeholder="Filter by Region">
-            <option value="none" selected disabled hidden>Filter by Region</option>
-            <option v-for="country in this.countries" :key="country.region">{{country.region}}</option>
-        </select>
-    </div>
+    <CustomSelect class="region-filter"
+        :options="options"
+        :default="default"
+        @filterRegion="filterRegion"
+    >
+    </CustomSelect>
 </div>
 </template>
 
 <script>
+import CustomSelect from './CustomSelect.vue'
+
 export default {
+    components: {
+        CustomSelect
+    },
     props: {
         countries: Object,
+    },
+    data() {
+        return {
+            options: ['Africa', 'America', 'Asia', 'Europe', 'Oceania'],
+            default: 'Fitler by Region'
+        }
+    },
+    methods: {
+        filterRegion(option) {
+            console.log(option)
+        }
     }
 }
 </script>
@@ -66,23 +82,6 @@ input:focus {
     outline: none;
 }
 
-/* filter dropdown */
-.region-filter > select {
-    width: 200px;
-    height: 48px;
-    border: none;
-    outline: none;
-    background: var(--color-background);
-    color: var(--color-text);
-    padding: 0 24px;
-    font-size: 14px;
-    line-height: 20px;
-}
-
-.region-filter > option {
-    color: var(--color-text-element);
-}
-
 @media screen and (min-width: 768px) {
     .filter-bar {
         flex-direction: row;
@@ -94,10 +93,6 @@ input:focus {
 
     input.search-text {
         width: 480px;
-        height: 56px;
-    }
-
-    .region-filter > select {
         height: 56px;
     }
 }
