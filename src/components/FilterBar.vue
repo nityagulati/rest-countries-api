@@ -36,7 +36,7 @@ export default {
     data() {
         return {
             options: ['Africa', 'Americas', 'Asia', 'Europe', 'Oceania'],
-            default: 'Fitler by Region',
+            default: 'Filter by Region',
             selectedRegion: ''
         }
     },
