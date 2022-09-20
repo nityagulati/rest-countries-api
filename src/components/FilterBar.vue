@@ -9,8 +9,9 @@
         <input 
             class="search-text shadow rounded"
             type="text" 
-            name="search" 
+            name="search"
             placeholder="Search for a country..."
+            v-model.trim = "searchText"
         >
     </div>
     <CustomSelect class="region-filter"
@@ -26,18 +27,16 @@
 import CustomSelect from './CustomSelect.vue'
 
 export default {
-    emits: ['getRegion'],
+    emits: ['getRegion', 'getSearch'],
     components: {
         CustomSelect
-    },
-    props: {
-        countries: Object,
     },
     data() {
         return {
             options: ['Africa', 'Americas', 'Asia', 'Europe', 'Oceania'],
             default: 'Fitler by Region',
-            selectedRegion: ''
+            selectedRegion: '',
+            searchText: ''
         }
     },
     methods: {
@@ -48,6 +47,9 @@ export default {
     watch: {
         selectedRegion() {
             this.$emit('getRegion', this.selectedRegion)
+        },
+        searchText() {
+            this.$emit('getSearch', this.searchText)
         }
     }
 }

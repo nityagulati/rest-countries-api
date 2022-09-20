@@ -34,6 +34,17 @@ export default {
         return country.region === region
       })
       this.countries = filteredCountries
+    },
+    getSearch(search) {
+      this.countries = this.initialData.slice()
+      let filteredCountries = this.countries.filter(country => {
+        let cap = country.capital[0]
+        let capital = cap ? cap.toLowerCase() : ''
+        return country.name.common.toLowerCase().includes(search.toLowerCase()) 
+        || country.region.toLowerCase().includes(search.toLowerCase())
+        || capital.toLowerCase().includes(search.toLowerCase())
+      })
+      this.countries = filteredCountries
     }
   }
 }
@@ -41,7 +52,7 @@ export default {
 
 <template>
   <Header></Header>
-  <FilterBar @getRegion="getRegion"></FilterBar>
+  <FilterBar @getRegion="getRegion" @getSearch="getSearch"></FilterBar>
   <Home :countries="countries"></Home>
 </template>
 
