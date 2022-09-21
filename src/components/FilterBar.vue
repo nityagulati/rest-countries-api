@@ -10,7 +10,7 @@
             class="search-text shadow rounded"
             type="text" 
             name="search"
-            placeholder="Search for a country..."
+            placeholder="Search for a country, region or capital..."
             v-model.trim = "searchText"
         >
     </div>
