@@ -30,10 +30,12 @@ export default {
   methods: {
     getRegion(region) {
       this.countries = this.initialData.slice()
-      let filteredCountries = this.countries.filter(country => {
-        return country.region === region
-      })
-      this.countries = filteredCountries
+      if(region !=='All') {
+        let filteredCountries = this.countries.filter(country => {
+          return country.region === region
+        })
+        this.countries = filteredCountries
+      }
     },
     getSearch(search) {
       this.countries = this.initialData.slice()

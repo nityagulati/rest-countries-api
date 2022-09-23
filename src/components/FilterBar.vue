@@ -33,7 +33,7 @@ export default {
     },
     data() {
         return {
-            options: ['Africa', 'Americas', 'Asia', 'Europe', 'Oceania'],
+            options: ['Africa', 'Americas', 'Antarctic', 'Asia', 'Europe', 'Oceania', 'All'],
             default: 'Filter by Region',
             selectedRegion: '',
             searchText: ''
