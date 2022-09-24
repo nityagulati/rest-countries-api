@@ -14,9 +14,10 @@ import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
 import { faMoon } from '@fortawesome/free-regular-svg-icons'
 import { faLightbulb } from '@fortawesome/free-regular-svg-icons'
 import { faMagnifyingGlass } from '@fortawesome/free-solid-svg-icons'
+import { faArrowLeft } from '@fortawesome/free-solid-svg-icons'
 
 /* add icons to the library */
-library.add(faMoon, faLightbulb, faMagnifyingGlass)
+library.add(faMoon, faLightbulb, faMagnifyingGlass, faArrowLeft)
 
 import './assets/main.css'
 

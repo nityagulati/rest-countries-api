@@ -1,10 +1,16 @@
 <template>
 <div class="card-container">
-    <div class="card shadow rounded" v-for="(country, index) in this.countries" :key="index">
+    <div 
+        class="card shadow rounded" 
+        v-for="(country, index) in this.countries" 
+        :key="index"
+        role="link"
+        @click="goToCountry(country.name.common)"
+    >
         <img 
             class="card-image flag shadow rounded-img" 
             :src="country.flags.svg" 
-            alt="`Flag of ${counry.name.common}`"
+            alt="`Flag of ${country.name.common}`"
         >
         <div class="card-content">
             <p class="name">
@@ -32,7 +38,14 @@ export default {
     methods: {
         isCapital(capital) {
             return capital ? capital : 'N/A'
-        } 
+        },
+        goToCountry(name) {
+            this.$router.push(
+                {
+                    path: `/rest-countries-api/${name}`
+                }
+            )
+        }
     }
 }
 </script>
@@ -74,6 +87,10 @@ span {
 
 .meta {
     margin-bottom: 8px;
+}
+
+[role='link']:hover {
+    cursor: pointer;
 }
 
 @media screen and (min-width: 768px) {
