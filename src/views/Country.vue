@@ -1,6 +1,6 @@
 <template>
 <div class="country-page">
-    <router-link to="/rest-countries-api/" class="btn btn--back">
+    <router-link to="/rest-countries-api/" class="btn btn--back shadow rounded">
         <font-awesome-icon icon="fa-solid fa-arrow-left" />
         Back
     </router-link>
@@ -21,9 +21,9 @@
             <div class="borders">
                 <p>Border Countries: </p>
                 <div class="border-buttons">
-                    <router-link to="/rest-countries-api/" class="btn btn--border">Country 1</router-link>
-                    <router-link to="/rest-countries-api/" class="btn btn--border">Country 2</router-link>
-                    <router-link to="/rest-countries-api/" class="btn btn--border">Country 3</router-link>
+                    <router-link to="/rest-countries-api/" class="btn btn--border shadow rounded">Country 1</router-link>
+                    <router-link to="/rest-countries-api/" class="btn btn--border shadow rounded">Country 2</router-link>
+                    <router-link to="/rest-countries-api/" class="btn btn--border shadow rounded">Country 3</router-link>
                 </div>
             </div>
         </div>
@@ -44,8 +44,6 @@ export default {
 .btn {
     display: block;
     background: var(--color-background);
-    box-shadow: var(--box-shadow);
-    border-radius: var(--border-radius);
     color: var(--color-text);
     text-decoration: none;
 }
