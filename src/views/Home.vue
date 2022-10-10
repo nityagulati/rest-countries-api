@@ -27,6 +27,8 @@ export default {
         if(response.status === 200) {
           data = await response.json()
           this.initialData = data
+          console.log(`${this.initialData.length} countries`)
+          console.log(this.initialData)
         }
         this.countries = this.initialData.slice()
     },
