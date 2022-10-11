@@ -2,28 +2,28 @@
 <div class="card-container">
     <div 
         class="card shadow rounded" 
-        v-for="(country, index) in this.countries" 
+        v-for="(country, index) in countries" 
         :key="index"
         role="link"
-        @click="goToCountry(country.name.common)"
+        @click="goToCountry(country.name)"
     >
         <img 
             class="card-image flag shadow rounded-img" 
-            :src="country.flags.svg" 
-            alt="`Flag of ${country.name.common}`"
+            :src="country.flag" 
+            alt="`Flag of ${country.name}`"
         >
         <div class="card-content">
             <p class="name">
-                {{country.name.common}}
+                {{country.name}}
             </p>
             <p class="population meta"><span>Population: </span>
-                {{country.population.toLocaleString()}}
+                {{country.population}}
             </p>
             <p class="region meta"><span>Region: </span>
                 {{country.region}}
             </p>
             <p class="capital meta"><span>Capital: </span>
-                {{isCapital(country.capital[0])}}
+                {{isCapital(country.capital)}}
             </p>
         </div>
     </div>
@@ -32,8 +32,13 @@
 
 <script>
 export default {
-    props: {
-        countries: Object,
+    mounted() {
+        this.$store.dispatch('fetchCountries')
+    },
+    computed: {
+        countries() {
+            return this.$store.state.countries
+        }
     },
     methods: {
         isCapital(capital) {

@@ -1,6 +1,6 @@
 <template>
     <FilterBar @getRegion="getRegion" @getSearch="getSearch"></FilterBar>
-    <CountryCard :countries="countries"></CountryCard>
+    <CountryCard></CountryCard>
 </template>
 
 <script>
@@ -11,26 +11,6 @@ export default {
     components: { 
         FilterBar,
         CountryCard
-    },
-    data() {
-        return {
-            initialData: null,
-            countries: null
-        }
-    },
-    async created() {
-        let data = []
-        let API_URL = 'https://restcountries.com/v3.1/all?fields=name,capital,population,region,flags,cca3'
-        let response = await fetch(API_URL)
-        console.log(response.status)
-        console.log(response.statusText)
-        if(response.status === 200) {
-          data = await response.json()
-          this.initialData = data
-          console.log(`${this.initialData.length} countries`)
-          console.log(this.initialData)
-        }
-        this.countries = this.initialData.slice()
     },
     methods: {
         getRegion(region) {
