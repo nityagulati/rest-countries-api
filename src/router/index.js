@@ -11,9 +11,10 @@ const routes = [
         component: Home
     },
     {
-        path: '/rest-countries-api/:country',
+        path: '/rest-countries-api/:countryName',
         name: 'country',
-        component: Country
+        component: Country,
+        props: true,
     }
 ]
 

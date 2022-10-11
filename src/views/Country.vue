@@ -5,25 +5,31 @@
         Back
     </router-link>
     <div class="country-container">
-        <img src="" alt="" class="country-img flag">
+        <img :src="country.flag" alt="" class="country-img flag">
         <div class="country-info">
-            <h2>Country Name</h2>
+            <h2>{{country.name}}</h2>
             <div class="details">
-                <p>Native Name:</p>
-                <p>Population:</p>
-                <p>Region:</p>
-                <p>Sub Region:</p>
-                <p>Capital:</p>
-                <p>Top Level Domain:</p>
-                <p>Currencies:</p>
-                <p>Languages:</p>
+                <p>Native Name: {{country.nativeName.common}}</p>
+                <p>Population: {{country.population}}</p>
+                <p>Region: {{country.region}}</p>
+                <p>Sub Region: {{country.subregion}}</p>
+                <p>Capital: {{country.capital}}</p>
+                <p>Top Level Domain: {{country.tld}}</p>
+                <p>Currencies: {{country.currencies}}</p>
+                <p>Languages: {{country.languages}}</p>
             </div>
-            <div class="borders">
+            <div class="borders" v-if="country.borders.length">
                 <p>Border Countries: </p>
                 <div class="border-buttons">
-                    <router-link to="/rest-countries-api/" class="btn btn--border shadow rounded">Country 1</router-link>
-                    <router-link to="/rest-countries-api/" class="btn btn--border shadow rounded">Country 2</router-link>
-                    <router-link to="/rest-countries-api/" class="btn btn--border shadow rounded">Country 3</router-link>
+                    <div
+                        v-for="(border, index) in country.borders"
+                        :key="index"
+                        role="link"
+                        class="btn btn--border shadow rounded"
+                        @click="getBorderCountry(border)"
+                    >
+                        {{border}}
+                    </div>
                 </div>
             </div>
         </div>
@@ -34,9 +40,35 @@
 <script>
 export default {
     props: {
-        countries: Object
+        countryName: String
+    },
+    data() {
+        return {
+            country: null
+        }
+    },
+    mounted() {
+        this.$store.dispatch('fetchCountries')
+    },
+    created() {
+        this.country = this.countries.find((c) => c.name === this.countryName)
+        console.log(this.country)
+    },
+    computed: {
+        countries() {
+            return this.$store.state.countries
+        }
+    },
+    methods: {
+        getBorderCountry(border) {
+            this.country = this.countries.find((c) => c.cca3 === border)
+            this.$router.push(
+                {
+                    path: `/rest-countries-api/${this.country.name}`
+                }
+            )
+        }
     }
-    
 }
 </script>
 
@@ -87,6 +119,7 @@ img.flag {
     width: 110px;
     height: auto;
     padding: 6px 24px;
+    cursor: pointer;
 }
 
 @media screen and (min-width: 375px) {
