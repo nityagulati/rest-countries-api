@@ -7,11 +7,13 @@
         role="link"
         @click="goToCountry(country.name)"
     >
-        <img 
-            class="card-image flag shadow rounded-img" 
-            :src="country.flag" 
-            alt="`Flag of ${country.name}`"
-        >
+        <div class="card-image shadow">
+            <img 
+                class="flag rounded-img" 
+                :src="country.flag" 
+                alt="`Flag of ${country.name}`"
+            >
+        </div>
         <div class="card-content">
             <p class="name">
                 {{country.name}}
@@ -69,11 +71,15 @@ export default {
     padding-bottom: 45px;
 }
 
-.card-image.flag {
+.card-image {
     margin-bottom: 24px;
-    width: 100%;
+    width: 264px;
     height: 160px;
-    object-fit: cover;
+}
+
+img.flag {
+    width: 100%;
+    height: 100%;
 }
 
 .card-content {
