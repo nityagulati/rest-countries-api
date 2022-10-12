@@ -3,6 +3,7 @@
 import { createWebHistory, createRouter } from 'vue-router'
 import Home from '@/views/Home.vue'
 import Country from '@/views/Country.vue'
+import PageNotFound from '@/views/PageNotFound.vue'
 
 const routes = [
     {
@@ -15,6 +16,11 @@ const routes = [
         name: 'country',
         component: Country,
         props: true,
+    },
+    {
+        path: '/rest-countries-api/:catchAll(.*)*',
+        name: 'PageNotFound',
+        component: PageNotFound
     }
 ]
 
