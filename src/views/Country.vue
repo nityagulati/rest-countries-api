@@ -5,18 +5,22 @@
         Back
     </router-link>
     <div class="country-container">
-        <img :src="country.flag" alt="" class="country-img flag">
+        <img 
+            :src="country.flag" 
+            alt="`Flag of ${country.name}`" 
+            class="country-img flag shadow"
+        >
         <div class="country-info">
             <h2>{{country.name}}</h2>
             <div class="details">
-                <p>Native Name: {{country.nativeName.common}}</p>
-                <p>Population: {{country.population}}</p>
-                <p>Region: {{country.region}}</p>
-                <p>Sub Region: {{country.subregion}}</p>
-                <p>Capital: {{country.capital}}</p>
-                <p>Top Level Domain: {{country.tld}}</p>
-                <p>Currencies: {{country.currencies}}</p>
-                <p>Languages: {{country.languages}}</p>
+                <p><span>Native Name: </span>{{country.nativeName.common}}</p>
+                <p><span>Population: </span>{{country.population}}</p>
+                <p><span>Region: </span>{{country.region}}</p>
+                <p><span>Sub Region: </span>{{country.subregion}}</p>
+                <p><span>Capital: </span>{{country.capital}}</p>
+                <p><span>Top Level Domain: </span>{{country.tld}}</p>
+                <p><span>Currencies: </span>{{country.currencies}}</p>
+                <p><span>Languages: </span>{{country.languages}}</p>
             </div>
             <div class="borders" v-if="country.borders.length">
                 <p>Border Countries: </p>
@@ -73,15 +77,15 @@ export default {
 </script>
 
 <style scoped>
+.country-page {
+    margin: 40px 28px;
+}
+
 .btn {
     display: block;
     background: var(--color-background);
     color: var(--color-text);
     text-decoration: none;
-}
-
-.country-page {
-    margin: 40px 28px;
 }
 
 .btn--back {
@@ -99,13 +103,24 @@ export default {
 img.flag {
     width: 100%;
     height: auto;
-    border: 2px solid red;
     margin-bottom: 44px;
+}
+
+h2 {
+    font-weight: var(--font-weight-bold);
 }
 
 .details {
     margin-top: 16px;
     margin-bottom: 34px;
+}
+
+.details span {
+    font-weight: var(--font-weight-semi);
+}
+
+.borders p {
+    font-weight: var(--font-weight-semi);
 }
 
 .border-buttons {
