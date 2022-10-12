@@ -44,13 +44,14 @@ export default {
 header {
   background: var(--color-background);
   display: flex;
-  justify-content: space-between;
-  align-items: center;
+  flex-direction: column;
+  align-items: flex-start;
 }
 
 h1 {
     font-weight: var(--font-weight-bold);
     font-size: var(--font-size-lg);
+    margin-bottom: 15px;
 }
 
 .theme-toggle {
@@ -63,5 +64,17 @@ h1 {
     touch-action: manipulation;
     -webkit-tap-highlight-color: transparent;
     outline-offset: 5px;
+}
+
+@media screen and (min-width: 360px) {
+    header {
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    h1 {
+        margin-bottom: 0;
+    }
 }
 </style>

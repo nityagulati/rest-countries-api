@@ -60,13 +60,13 @@ export default {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    margin-bottom: 48px;
+    margin-bottom: 28px;
 }
 
 /* search field */
 .search-filter {
     position: relative;
-    margin-bottom: 40px;
+    margin-bottom: 25px;
 }
 
 .search-icon {
@@ -79,9 +79,9 @@ export default {
 }
 
 input.search-text {
-    width: 343px;
+    width: 250px;
     height: 48px;
-    padding: 18px 45px;
+    padding: 18px 25px 18px 45px;
     border: none;
     background: var(--color-background);
     color: var(--color-text);
@@ -89,6 +89,29 @@ input.search-text {
 
 input:focus {
     outline: none;
+}
+
+@media screen and (min-width: 360px) {
+    input.search-text {
+        width: 330px;
+        height: 48px;
+    }
+}
+
+@media screen and (min-width: 375px) {
+    .filter-bar {
+        margin-bottom: 48px;
+    }
+
+    .search-filter {
+        margin-bottom: 40px;
+    }
+
+    input.search-text {
+        width: 343px;
+        height: 48px;
+        padding: 18px 45px;
+    }
 }
 
 @media screen and (min-width: 768px) {

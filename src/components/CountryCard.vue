@@ -58,7 +58,7 @@ export default {
 <style scoped>
 .card-container {
     display: grid;
-    grid-template-columns: minmax(auto, 264px);
+    grid-template-columns: minmax(auto, 240px);
     grid-template-rows: auto;
     justify-content: center;
     grid-gap: 75px;
@@ -94,8 +94,10 @@ span {
     margin-bottom: 8px;
 }
 
-[role='link']:hover {
-    cursor: pointer;
+@media screen and (min-width: 375px) {
+    .card-container {
+        grid-template-columns: minmax(auto, 264px);
+    } 
 }
 
 @media screen and (min-width: 768px) {

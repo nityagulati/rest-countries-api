@@ -1,13 +1,15 @@
 <template>
     <div class="country-container">
-        <img 
-            :src="country.flag" 
-            alt="`Flag of ${country.name}`" 
-            class="country-img flag shadow"
-        >
-        <div class="country-info">
+        <div class="country-img">
+            <img 
+                :src="country.flag" 
+                alt="`Flag of ${country.name}`" 
+                class="flag"
+            >
+        </div>
+        <div class="details">
             <h2>{{country.name}}</h2>
-            <div class="details">
+            <div class="meta">
                 <p><span>Native Name: </span>{{country.nativeName.common}}</p>
                 <p><span>Population: </span>{{country.population}}</p>
                 <p><span>Region: </span>{{country.region}}</p>
@@ -19,7 +21,7 @@
             </div>
             <div class="borders" v-if="country.borders.length">
                 <p>Border Countries: </p>
-                <div class="borders-container">
+                <div class="border-buttons">
                     <div
                         v-for="(border, index) in country.borders"
                         :key="index"
@@ -71,22 +73,26 @@ export default {
 </script>
 
 <style scoped>
-img.flag {
+.country-img {
     width: 100%;
     height: auto;
     margin-bottom: 44px;
+}
+
+img.flag {
+    width: 100%;
 }
 
 h2 {
     font-weight: var(--font-weight-bold);
 }
 
-.details {
+.meta {
     margin-top: 16px;
     margin-bottom: 34px;
 }
 
-.details span {
+.meta span {
     font-weight: var(--font-weight-semi);
 }
 
@@ -94,7 +100,7 @@ h2 {
     font-weight: var(--font-weight-semi);
 }
 
-.borders-container {
+.border-buttons {
     margin-top: 16px;
     display: flex;
     flex-wrap: wrap;
@@ -108,19 +114,19 @@ h2 {
 }
 
 @media screen and (min-width: 375px) {
-    img.flag {
-        width: 330px;
+    .country-img {
+        width: 320px;
         height: 229px;
     }    
 }
 
 @media screen and (min-width: 768px) {
-    img.flag {
+    .country-img {
         width: 560px;
         height: 401px;
     }
 
-    .details {
+    .meta {
         margin-top: 23px;
         display: flex;
         flex-direction: column;
@@ -135,10 +141,6 @@ h2 {
         display: flex;
         column-gap: 60px;
     }
-
-    .details {
-        height: auto;
-    }
 }
 
 @media screen and (min-width: 1220px) {
@@ -147,18 +149,13 @@ h2 {
         column-gap: 100px;
     }
 
+    .meta {
+        margin-bottom: 68px;
+    }
+
     .borders {
         display: flex;
         gap: 15px;
-    }
-
-    .details {
-        display: flex;
-        flex-direction: column;
-        flex-wrap: wrap;
-        height: 120px;
-        column-gap: 60px;
-        margin-bottom: 68px;
     }
 
     .border-buttons {

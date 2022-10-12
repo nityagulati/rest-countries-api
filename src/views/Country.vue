@@ -1,5 +1,5 @@
 <template>
-<div class="country-page">
+<div class="container">
     <router-link to="/rest-countries-api/" class="btn btn--back shadow rounded">
         <font-awesome-icon icon="fa-solid fa-arrow-left" />
         Back
@@ -27,8 +27,9 @@ export default {
 </script>
 
 <style scoped>
-.country-page {
+.container {
     margin: 40px 28px;
+    padding: 0;
 }
 
 .btn--back {
@@ -44,7 +45,7 @@ export default {
 }
 
 @media screen and (min-width: 768px) {
-    .country-page {
+    .container {
         margin: 50px 80px;
     }
 
