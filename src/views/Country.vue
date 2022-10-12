@@ -4,7 +4,7 @@
         <font-awesome-icon icon="fa-solid fa-arrow-left" />
         Back
     </router-link>
-    <CountryInfo :countryName="countryName"></CountryInfo>
+    <CountryInfo :selectedCountry="selectedCountry"></CountryInfo>
 </div>
 </template>
 
@@ -16,11 +16,11 @@ export default {
         CountryInfo
     },
     props: {
-        country: String
+        name: String
     },
     data() {
         return {
-            countryName: this.country
+            selectedCountry: this.name
         }
     }
 }

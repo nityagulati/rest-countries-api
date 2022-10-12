@@ -40,7 +40,7 @@
 <script>
 export default {
     props: {
-        countryName: String
+        selectedCountry: String
     },
     data() {
         return {
@@ -51,7 +51,7 @@ export default {
         this.$store.dispatch('fetchCountries')
     },
     created() {
-        this.country = this.countries.find((c) => c.name === this.countryName)
+        this.country = this.countries.find((c) => c.name === this.selectedCountry)
         console.log(this.country)
     },
     computed: {
@@ -64,7 +64,7 @@ export default {
             this.country = this.countries.find((c) => c.cca3 === border)
             this.$router.push(
                 {
-                    path: `/rest-countries-api/${this.country.name}`
+                    path: `/rest-countries-api/country/${this.country.name}`
                 }
             )
         }
