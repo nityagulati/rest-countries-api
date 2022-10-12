@@ -11,7 +11,7 @@ const routes = [
         component: Home
     },
     {
-        path: '/rest-countries-api/:countryName',
+        path: '/rest-countries-api/:country',
         name: 'country',
         component: Country,
         props: true,

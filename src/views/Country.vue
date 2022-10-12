@@ -16,11 +16,11 @@ export default {
         CountryInfo
     },
     props: {
-        countryName: String
+        country: String
     },
     data() {
         return {
-            countryName: this.countryName
+            countryName: this.country
         }
     }
 }
