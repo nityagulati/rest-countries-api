@@ -49,7 +49,8 @@ export default {
         goToCountry(name) {
             this.$router.push(
                 {
-                    path: `/rest-countries-api/country/${name}`
+                    name: 'country',
+                    params: { name }
                 }
             )
         }

@@ -39,19 +39,13 @@
 
 <script>
 export default {
-    props: {
-        selectedCountry: String
-    },
     data() {
         return {
             country: null
         }
     },
-    mounted() {
-        this.$store.dispatch('fetchCountries')
-    },
     created() {
-        this.country = this.countries.find((c) => c.name === this.selectedCountry)
+        this.country = this.countries.find((c) => c.name === this.$route.params.name)
         console.log(this.country)
     },
     computed: {

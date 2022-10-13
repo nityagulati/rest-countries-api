@@ -4,7 +4,7 @@
         <font-awesome-icon icon="fa-solid fa-arrow-left" />
         Back
     </router-link>
-    <CountryInfo :selectedCountry="selectedCountry"></CountryInfo>
+    <CountryInfo></CountryInfo>
 </div>
 </template>
 
@@ -14,14 +14,6 @@ import CountryInfo from '@/components/CountryInfo.vue'
 export default {
     components: {
         CountryInfo
-    },
-    props: {
-        name: String
-    },
-    data() {
-        return {
-            selectedCountry: this.name
-        }
     }
 }
 </script>
