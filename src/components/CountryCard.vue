@@ -70,6 +70,12 @@ export default {
 .card {
     background: var(--color-background);
     padding-bottom: 45px;
+    transition: 1s ease;
+}
+
+.card:hover {
+    transform: scale(1.1);
+    transition: 1s ease;
 }
 
 .card-image {
