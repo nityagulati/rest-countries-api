@@ -19,9 +19,9 @@
                 <p><span>Currencies: </span>{{country.currencies}}</p>
                 <p><span>Languages: </span>{{country.languages}}</p>
             </div>
-            <div class="borders" v-if="country.borders.length">
-                <p>Border Countries: </p>
-                <div class="border-buttons">
+            <div class="borders">
+                <p>Border Countries:</p>
+                <div class="border-buttons" v-if="country.borders.length">
                     <div
                         v-for="(border, index) in country.borders"
                         :key="index"
@@ -32,6 +32,7 @@
                         {{border}}
                     </div>
                 </div>
+                <div v-else>Unknown</div>
             </div>
         </div>
     </div>
@@ -149,7 +150,7 @@ h2 {
 
     .borders {
         display: flex;
-        gap: 15px;
+        gap: 10px;
     }
 
     .border-buttons {
