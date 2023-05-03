@@ -58,7 +58,7 @@ export default {
             this.country = this.countries.find((c) => c.cca3 === border)
             this.$router.push(
                 {
-                    path: `/rest-countries-api/country/${this.country.name}`
+                    path: `/rest-countries-api/${this.country.name}`
                 }
             )
         }
