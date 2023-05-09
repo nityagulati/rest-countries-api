@@ -10,8 +10,8 @@
             class="search-text shadow rounded"
             type="text" 
             name="search"
-            placeholder="Search for a country, region or capital..."
-            v-model.trim = "searchText"
+            placeholder="Search for a country..."
+            v-model.trim="searchText"
         >
     </div>
     <CustomSelect class="region-filter"
@@ -27,7 +27,6 @@
 import CustomSelect from './CustomSelect.vue'
 
 export default {
-    emits: ['getRegion', 'getSearch'],
     components: {
         CustomSelect
     },
@@ -46,10 +45,10 @@ export default {
     },
     watch: {
         selectedRegion() {
-            this.$emit('getRegion', this.selectedRegion)
+            this.$store.dispatch('fetchRegion', this.selectedRegion)
         },
         searchText() {
-            this.$emit('getSearch', this.searchText)
+            this.$store.dispatch('fetchSearch', this.searchText)
         }
     }
 }

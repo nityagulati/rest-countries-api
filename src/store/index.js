@@ -4,10 +4,12 @@ import { createStore } from 'vuex'
 
 export default createStore({
     state: {
-        countries: []
+        countries: [],
+        isNotFound: false,
+        API_URL: 'https://restcountries.com/v3.1/all?fields=name,capital,population,region,subregion,flags,cca3,tld,currencies,languages,borders'
     },
     mutations: {
-        setCountries(state, countries) {
+        SET_COUNTRIES(state, countries) {
             state.countries = countries.map(country => {
                 return {
                     name: country.name.common,
@@ -24,23 +26,62 @@ export default createStore({
                     borders: country.borders
                 }
             })
+        },
+        SET_NOT_FOUND(state, isNotFound) {
+            state.isNotFound = isNotFound
+        },
+        SET_API_URL(state, API_URL) {
+            state.API_URL = API_URL
         }
     },
     actions: {
-        fetchCountries({commit}) {
-            const API_URL = 'https://restcountries.com/v3.1/all?fields=name,capital,population,region,subregion,flags,cca3,tld,currencies,languages,borders'
-
-            return fetch(API_URL)
+        fetchAllCountries({commit}) {      
+            return fetch(this.state.API_URL)
             .then((response) => response.json())
             .then((data) => {
-                commit('setCountries', data)
+                commit('SET_COUNTRIES', data)
+                return this.state.countries
             })
             .catch((error) => console.log(error))
+        },
+        fetchSearch({commit, dispatch}, searchInput) {
+            return fetch(this.state.API_URL)
+            .then(async (response) => {
+                if (searchInput.length > 0) {
+                    const data = await response.json()
+                    let filteredCountries = data.filter(country => {
+                        return country.name.common.toLowerCase().includes(searchInput.toLowerCase())
+                    })
+                    if (filteredCountries.length > 0) {
+                        commit('SET_NOT_FOUND', false)
+                        commit('SET_COUNTRIES', filteredCountries)
+                    } else {
+                        commit('SET_NOT_FOUND', true)
+                    }
+                } else {
+                    commit('SET_NOT_FOUND', false)
+                    dispatch('fetchAllCountries')
+                }
+            })
+        },
+        fetchRegion({commit, dispatch}, region) {
+            if (region !== 'All') {
+                let NEW_URL = `https://restcountries.com/v3.1/region/${region}?fields=name,capital,population,region,subregion,flags,cca3,tld,currencies,languages,borders`
+                commit('SET_API_URL', NEW_URL)
+                dispatch('fetchAllCountries')
+            } else {
+                let NEW_URL = 'https://restcountries.com/v3.1/all?fields=name,capital,population,region,subregion,flags,cca3,tld,currencies,languages,borders'
+                commit('SET_API_URL', NEW_URL)
+                dispatch('fetchAllCountries')
+            }
         }
     },
     getters: {
-        countries(state) {
+        getCountries(state) {
             return state.countries
+        },
+        getNotFound(state) {
+            return state.isNotFound
         }
     }
 })

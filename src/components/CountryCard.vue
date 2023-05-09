@@ -1,6 +1,10 @@
 <template>
 <div class="card-container">
+    <div v-if="notFound">
+        <h2>No countries found</h2>
+    </div>
     <div 
+        v-else
         class="card shadow rounded" 
         v-for="(country, index) in countries" 
         :key="index"
@@ -35,11 +39,14 @@
 <script>
 export default {
     mounted() {
-        this.$store.dispatch('fetchCountries')
+        this.$store.dispatch('fetchAllCountries')
     },
     computed: {
         countries() {
-            return this.$store.state.countries
+            return this.$store.getters.getCountries
+        },
+        notFound() {
+            return this.$store.getters.getNotFound
         }
     },
     methods: {
