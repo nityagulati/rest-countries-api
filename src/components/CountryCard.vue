@@ -71,7 +71,7 @@ export default {
     grid-template-columns: minmax(auto, 240px);
     grid-template-rows: auto;
     justify-content: center;
-    grid-gap: 75px;
+    grid-gap: 50px;
 }
 
 .card {
@@ -87,13 +87,14 @@ export default {
 
 .card-image {
     margin-bottom: 24px;
-    width: 264px;
-    height: 160px;
+    width: 240px;
+    height: 170px;
 }
 
 img.flag {
     width: 100%;
     height: 100%;
+    object-fit: cover;
 }
 
 .card-content {
@@ -116,13 +117,16 @@ span {
 
 @media screen and (min-width: 375px) {
     .card-container {
-        grid-template-columns: minmax(auto, 264px);
+        grid-template-columns: minmax(auto, 300px);
     } 
+    .card-image {
+        width: 300px;
+    }
 }
 
 @media screen and (min-width: 768px) {
     .card-container {
-        grid-template-columns: repeat(auto-fill, minmax(264px, 264px));
+        grid-template-columns: repeat(auto-fill, minmax(300px, 300px));
     } 
 }
 
