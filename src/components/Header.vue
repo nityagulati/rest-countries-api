@@ -3,7 +3,7 @@
     <h1>Where in the world?</h1>
     <button 
         class="theme-toggle"
-        title="toggles light and dark"
+        title="toggles light and dark mode"
         aria-label="auto"
         aria-live="polite"
         @click.stop="themeToggle"
